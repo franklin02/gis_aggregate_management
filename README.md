@@ -4,7 +4,8 @@ Here's a `README.md` file for the **gis_aggregate_management** project, outlinin
 
 # GIS Aggregate Management Project
 
-A prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the Idaho Transportation Department (ITD). This project uses PostgreSQL with PostGIS for spatial data and Python for data population and UQ calculations.
+A prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the Idaho 
+Transportation Department (ITD). This project uses PostgreSQL with PostGIS for spatial data and Python for data population and UQ calculations.
 
 ## Project Structure
 
@@ -136,7 +137,8 @@ python scripts/testing_queries.py
 ## Additional Information
 
 - **Uncertainty Quantification (UQ) Functions**:
-  - The UQ functions calculate mean, standard deviation, and reliability index for material quality test values. The reliability index gives an initial measure of material reliability, which is useful for planning and quality assurance.
+  - The UQ functions calculate mean, standard deviation, and reliability index for material quality test values. The reliability index gives 
+  an initial measure of material reliability, which is useful for planning and quality assurance.
 - **Triggers**:
   - Triggers automatically update UQ metrics when new data is inserted or existing data is updated in the `Material_Quality` table.
 
