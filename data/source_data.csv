@@ -1,0 +1,4 @@
+Source_ID,Source_Name,Latitude,Longitude,District_Region,Status,Aggregate_Type
+S001,Pine Quarry,44.1234,-115.1234,District 1,Active,Gravel
+S002,Bear Rock Site,43.5678,-116.5678,District 2,Depleted,Sand
+S003,Elk Gravel Pit,44.8765,-114.8765,District 1,Retired,Rock

@@ -1,0 +1,4 @@
+Compliance_ID,Source_ID,Cultural_Clearance,Environmental_Permits,Reclamation_Plan
+E001,S001,Yes,Permit-123,Reclamation Plan A
+E002,S002,No,Permit-456,Reclamation Plan B
+E003,S003,Yes,Permit-789,Reclamation Plan C

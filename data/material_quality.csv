@@ -1,0 +1,4 @@
+Material_ID,Source_ID,Aggregate_Use,Lab_Test_Type,Test_Value,Test_Date,Data_Source
+M001,S001,Road Base,Abrasion,23,1/1/2024,Lab A
+M002,S002,Concrete Mix,Gradation,8,12/15/2023,Lab B
+M003,S003,Pavement Fill,Specific Gravity,2.65,1/10/2024,Lab C
