@@ -8,8 +8,8 @@ def connect_to_db():
     try:
         conn = psycopg2.connect(
             dbname="gis_aggregate_db",
-            user="your_username",       # Replace with your PostgreSQL username
-            password="your_password",    # Replace with your PostgreSQL password
+            user="postgres",       # Replace this with your actual PostgreSQL username
+            password="Lu977908",    # Replace this with your actual PostgreSQL password
             host="localhost",
             port="5432"
         )

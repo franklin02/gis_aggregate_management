@@ -1,4 +1,22 @@
 Material_ID,Source_ID,Aggregate_Use,Lab_Test_Type,Test_Value,Test_Date,Data_Source
-M001,S001,Road Base,Abrasion,23,1/1/2024,Lab A
-M002,S002,Concrete Mix,Gradation,8,12/15/2023,Lab B
-M003,S003,Pavement Fill,Specific Gravity,2.65,1/10/2024,Lab C
+M001,S001,Road Base,Abrasion,20.5,1/31/2023,Lab A
+M002,S002,Concrete Mix,Gradation,21,2/28/2023,Lab B
+M003,S003,Road Base,Abrasion,21.5,3/31/2023,Lab C
+M004,S004,Concrete Mix,Gradation,22,4/30/2023,Lab D
+M005,S005,Road Base,Abrasion,22.5,5/31/2023,Lab E
+M006,S006,Concrete Mix,Gradation,23,6/30/2023,Lab A
+M007,S007,Road Base,Abrasion,23.5,7/31/2023,Lab B
+M008,S008,Concrete Mix,Gradation,24,8/31/2023,Lab C
+M009,S009,Road Base,Abrasion,24.5,9/30/2023,Lab D
+M010,S010,Concrete Mix,Gradation,25,10/31/2023,Lab E
+M011,S011,Road Base,Abrasion,25.5,11/30/2023,Lab A
+M012,S012,Concrete Mix,Gradation,26,12/31/2023,Lab B
+M013,S013,Road Base,Abrasion,26.5,1/31/2024,Lab C
+M014,S014,Concrete Mix,Gradation,27,2/29/2024,Lab D
+M015,S015,Road Base,Abrasion,27.5,3/31/2024,Lab E
+M016,S016,Concrete Mix,Gradation,28,4/30/2024,Lab A
+M017,S017,Road Base,Abrasion,28.5,5/31/2024,Lab B
+M018,S018,Concrete Mix,Gradation,29,6/30/2024,Lab C
+M019,S019,Road Base,Abrasion,29.5,7/31/2024,Lab D
+M020,S020,Concrete Mix,Gradation,30,8/31/2024,Lab E
+,,,,,,

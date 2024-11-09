@@ -5,14 +5,14 @@ def test_database_queries():
     if not conn:
         return
 
-    # Test query for Source Table
+    # Test query for Source Table (showing only first 5 records for brevity)
     cursor.execute("SELECT * FROM Source LIMIT 5")
     sources = cursor.fetchall()
     print("Sample records from Source table:")
     for source in sources:
         print(source)
 
-    # Test query for Material Quality Table
+    # Test query for Material Quality Table (showing only first 5 records for brevity)
     cursor.execute("SELECT * FROM Material_Quality LIMIT 5")
     materials = cursor.fetchall()
     print("\nSample records from Material_Quality table:")

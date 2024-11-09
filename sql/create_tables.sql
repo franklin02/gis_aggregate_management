@@ -1,12 +1,8 @@
--- Connect to the database (e.g., gis_aggregate_db)
-CREATE DATABASE gis_aggregate_db;
-\c gis_aggregate_db;
-
--- Enable PostGIS extension for spatial support
+-- Enable PostGIS extension
 CREATE EXTENSION IF NOT EXISTS postgis;
 
--- Source Table
-CREATE TABLE Source (
+-- Create Source Table
+CREATE TABLE IF NOT EXISTS Source (
     Source_ID VARCHAR(10) PRIMARY KEY,
     Source_Name VARCHAR(50),
     Latitude DECIMAL(9, 6),
@@ -16,8 +12,8 @@ CREATE TABLE Source (
     Aggregate_Type VARCHAR(20)
 );
 
--- Material Quality Table
-CREATE TABLE Material_Quality (
+-- Create Material_Quality Table
+CREATE TABLE IF NOT EXISTS Material_Quality (
     Material_ID VARCHAR(10) PRIMARY KEY,
     Source_ID VARCHAR(10) REFERENCES Source(Source_ID),
     Aggregate_Use VARCHAR(50),
@@ -27,8 +23,8 @@ CREATE TABLE Material_Quality (
     Data_Source VARCHAR(50)
 );
 
--- Environmental Compliance Table
-CREATE TABLE Environmental_Compliance (
+-- Create Environmental_Compliance Table
+CREATE TABLE IF NOT EXISTS Environmental_Compliance (
     Compliance_ID VARCHAR(10) PRIMARY KEY,
     Source_ID VARCHAR(10) REFERENCES Source(Source_ID),
     Cultural_Clearance BOOLEAN,
@@ -36,8 +32,8 @@ CREATE TABLE Environmental_Compliance (
     Reclamation_Plan VARCHAR(100)
 );
 
--- Operational Information Table
-CREATE TABLE Operational_Info (
+-- Create Operational_Info Table
+CREATE TABLE IF NOT EXISTS Operational_Info (
     Operation_ID VARCHAR(10) PRIMARY KEY,
     Source_ID VARCHAR(10) REFERENCES Source(Source_ID),
     Ownership_Details VARCHAR(100),
@@ -46,12 +42,22 @@ CREATE TABLE Operational_Info (
     Access_Details VARCHAR(100)
 );
 
--- Mapping & Imagery Table (optional for future spatial layers)
-CREATE TABLE Mapping_Imagery (
+-- Create Mapping_Imagery Table (optional for future spatial layers)
+CREATE TABLE IF NOT EXISTS Mapping_Imagery (
     Map_ID SERIAL PRIMARY KEY,
     Source_ID VARCHAR(10) REFERENCES Source(Source_ID),
     Map_File VARCHAR(255),
     Plat_Diagram VARCHAR(255),
     Imagery_File VARCHAR(255),
     Spatial_Location GEOMETRY(Point, 4326) -- spatial geometry for location mapping
+);
+
+-- Create UQ_Results Table
+CREATE TABLE IF NOT EXISTS UQ_Results (
+    Metric_ID SERIAL PRIMARY KEY,
+    Source_ID VARCHAR(10) REFERENCES Source(Source_ID),
+    Mean_Value DECIMAL(10, 4),
+    Standard_Deviation DECIMAL(10, 4),
+    Reliability_Index DECIMAL(10, 4),
+    Calculation_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

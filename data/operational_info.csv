@@ -1,4 +1,21 @@
 Operation_ID,Source_ID,Ownership_Details,Lease_Information,Extraction_Method,Access_Details
-O001,S001,Idaho Gravel Co.,Lease A,Surface Mining,5 miles from Highway 55
-O002,S002,Sand & Rock Partners,Lease B,Underground,10 miles from Highway 21
-O003,S003,Elk Valley Resources,Lease C,Surface Mining,8 miles from Interstate 84
+O001,S001,Company A,Lease A,Surface Mining,5 miles from Highway 55
+O002,S002,Company B,Lease B,Underground,10 miles from Highway 65
+O003,S003,Company C,Lease C,Surface Mining,8 miles from Highway 75
+O004,S004,Company D,Lease D,Underground,12 miles from Highway 85
+O005,S005,Company E,Lease E,Surface Mining,6 miles from Highway 55
+O006,S006,Company A,Lease A,Underground,11 miles from Highway 65
+O007,S007,Company B,Lease B,Surface Mining,9 miles from Highway 75
+O008,S008,Company C,Lease C,Underground,13 miles from Highway 85
+O009,S009,Company D,Lease D,Surface Mining,7 miles from Highway 55
+O010,S010,Company E,Lease E,Underground,14 miles from Highway 65
+O011,S011,Company A,Lease A,Surface Mining,5 miles from Highway 75
+O012,S012,Company B,Lease B,Underground,10 miles from Highway 85
+O013,S013,Company C,Lease C,Surface Mining,8 miles from Highway 55
+O014,S014,Company D,Lease D,Underground,12 miles from Highway 65
+O015,S015,Company E,Lease E,Surface Mining,6 miles from Highway 75
+O016,S016,Company A,Lease A,Underground,11 miles from Highway 85
+O017,S017,Company B,Lease B,Surface Mining,9 miles from Highway 55
+O018,S018,Company C,Lease C,Underground,13 miles from Highway 65
+O019,S019,Company D,Lease D,Surface Mining,7 miles from Highway 75
+O020,S020,Company E,Lease E,Underground,14 miles from Highway 85

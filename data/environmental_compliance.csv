@@ -1,4 +1,21 @@
 Compliance_ID,Source_ID,Cultural_Clearance,Environmental_Permits,Reclamation_Plan
-E001,S001,Yes,Permit-123,Reclamation Plan A
-E002,S002,No,Permit-456,Reclamation Plan B
-E003,S003,Yes,Permit-789,Reclamation Plan C
+E001,S001,TRUE,Permit-101,Reclamation Plan A
+E002,S002,FALSE,Permit-102,Reclamation Plan B
+E003,S003,TRUE,Permit-103,Reclamation Plan C
+E004,S004,FALSE,Permit-104,Reclamation Plan D
+E005,S005,TRUE,Permit-105,Reclamation Plan E
+E006,S006,FALSE,Permit-106,Reclamation Plan A
+E007,S007,TRUE,Permit-107,Reclamation Plan B
+E008,S008,FALSE,Permit-108,Reclamation Plan C
+E009,S009,TRUE,Permit-109,Reclamation Plan D
+E010,S010,FALSE,Permit-110,Reclamation Plan E
+E011,S011,TRUE,Permit-111,Reclamation Plan A
+E012,S012,FALSE,Permit-112,Reclamation Plan B
+E013,S013,TRUE,Permit-113,Reclamation Plan C
+E014,S014,FALSE,Permit-114,Reclamation Plan D
+E015,S015,TRUE,Permit-115,Reclamation Plan E
+E016,S016,FALSE,Permit-116,Reclamation Plan A
+E017,S017,TRUE,Permit-117,Reclamation Plan B
+E018,S018,FALSE,Permit-118,Reclamation Plan C
+E019,S019,TRUE,Permit-119,Reclamation Plan D
+E020,S020,FALSE,Permit-120,Reclamation Plan E

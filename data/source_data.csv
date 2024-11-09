@@ -1,4 +1,21 @@
 Source_ID,Source_Name,Latitude,Longitude,District_Region,Status,Aggregate_Type
-S001,Pine Quarry,44.1234,-115.1234,District 1,Active,Gravel
-S002,Bear Rock Site,43.5678,-116.5678,District 2,Depleted,Sand
-S003,Elk Gravel Pit,44.8765,-114.8765,District 1,Retired,Rock
+S001,Source_1,44.1,-115.1,District 2,Active,Gravel
+S002,Source_2,44.2,-115.2,District 3,Active,Sand
+S003,Source_3,44.3,-115.3,District 4,Depleted,Gravel
+S004,Source_4,44.4,-115.4,District 5,Active,Sand
+S005,Source_5,44.5,-115.5,District 6,Active,Gravel
+S006,Source_6,44.6,-115.6,District 1,Depleted,Sand
+S007,Source_7,44.7,-115.7,District 2,Active,Gravel
+S008,Source_8,44.8,-115.8,District 3,Active,Sand
+S009,Source_9,44.9,-115.9,District 4,Depleted,Gravel
+S010,Source_10,45,-116,District 5,Active,Sand
+S011,Source_11,45.1,-116.1,District 6,Active,Gravel
+S012,Source_12,45.2,-116.2,District 1,Depleted,Sand
+S013,Source_13,45.3,-116.3,District 2,Active,Gravel
+S014,Source_14,45.4,-116.4,District 3,Active,Sand
+S015,Source_15,45.5,-116.5,District 4,Depleted,Gravel
+S016,Source_16,45.6,-116.6,District 5,Active,Sand
+S017,Source_17,45.7,-116.7,District 6,Active,Gravel
+S018,Source_18,45.8,-116.8,District 1,Depleted,Sand
+S019,Source_19,45.9,-116.9,District 2,Active,Gravel
+S020,Source_20,46,-117,District 3,Active,Sand
