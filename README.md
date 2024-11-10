@@ -4,8 +4,8 @@ Here's a `README.md` file for the **gis_aggregate_management** project, outlinin
 
 # GIS Aggregate Management Project
 
-A prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the Idaho 
-Transportation Department (ITD). This project uses PostgreSQL with PostGIS for spatial data and Python for data population and UQ calculations.
+A prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the State of Idaho
+Public Transportation Infrastructure Construction use. This project uses PostgreSQL with PostGIS for spatial data and Python for data population and UQ calculations.
 
 ## Project Structure
 
