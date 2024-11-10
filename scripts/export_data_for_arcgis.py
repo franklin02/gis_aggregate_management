@@ -8,12 +8,12 @@ def export_data_with_uq():
         return
 
     try:
-        # Fetch data from Source and UQ_Results tables
+        # Fetch all records from Source and UQ_Results tables
         query = """
         SELECT s.source_id, s.source_name, s.latitude, s.longitude, 
                u.mean_value, u.standard_deviation, u.reliability_index
         FROM Source s
-        JOIN UQ_Results u ON s.source_id = u.source_id;
+        LEFT JOIN UQ_Results u ON s.source_id = u.source_id;
         """
         cursor.execute(query)
         rows = cursor.fetchall()

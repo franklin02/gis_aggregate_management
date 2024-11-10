@@ -11,21 +11,26 @@ Transportation Department (ITD). This project uses PostgreSQL with PostGIS for s
 
 ```plaintext
 gis_aggregate_management/
-├── data/                        # Directory for sample data files
-│   ├── source_data.csv          # Sample data file for aggregate sources
-│   ├── material_quality.csv     # Sample data file for material quality
+├── data/                            # Directory for sample data files
+│   ├── source_data.csv              # Sample data file for aggregate sources
+│   ├── material_quality.csv         # Sample data file for material quality
 │   ├── environmental_compliance.csv # Sample data file for compliance data
-│   └── operational_info.csv     # Sample data file for operational details
-├── sql/                         # SQL scripts for database creation and setup
-│   ├── create_tables.sql        # SQL script to create tables and define schema
-│   ├── insert_sample_data.sql   # SQL script to insert sample data
-│   └── create_functions.sql     # SQL script for database functions and triggers
-├── scripts/                     # Python scripts for database population and UQ functions
-│   ├── database_connection.py   # Python script to connect to PostgreSQL database
-│   ├── data_population.py       # Python script for loading data into PostgreSQL
-│   ├── uncertainty_model.py     # Python script for UQ modeling functions
-│   └── testing_queries.py       # Python script for testing database and UQ queries
-└── README.md                    # Instructions and project overview
+│   └── operational_info.csv         # Sample data file for operational details
+├── sql/                             # SQL scripts for database creation and setup
+│   ├── create_tables.sql            # SQL script to create tables and define schema
+│   ├── automate_uq_updates.sql      # SQL script to create UQ update function and trigger
+│   ├── create_functions.sql         # SQL script for additional functions
+│   └── insert_sample_data.sql       # Optional SQL script to insert initial sample data
+├── scripts/                         # Python scripts for database population and UQ functions
+│   ├── data_population.py           # Python script for loading data into PostgreSQL
+│   ├── database_connection.py       # Python script for database connection handling
+│   ├── export_data_for_arcgis.py    # Python script to export data for ArcGIS
+│   ├── export_data_to_csv.py        # Python script to export data to CSV
+│   ├── test_script.py               # Python test script for functionality checks
+│   ├── testing_queries.py           # Python script to test database queries
+│   ├── uncertainty_model.py         # Python script for UQ calculations
+│   └── visualize_and_detect_outliers.py # Python script for visualizing data and detecting outliers
+└── README.md                        # Instructions and project overview
 ```
 
 ## Prerequisites
@@ -34,44 +39,54 @@ gis_aggregate_management/
 - **Python** (version 3.6 or higher).
 - Required Python libraries: `psycopg2` and `numpy`.
 
-### Install Python Dependencies
+### Install Required Python Libraries
+
+Install the necessary libraries in your environment:
 
 ```bash
-pip install psycopg2 numpy
+pip install psycopg2-binary numpy pandas matplotlib
 ```
 
-## Setting Up the Database
+## Database Setup
 
-1. **Create the Database**:
-   - Open PostgreSQL CLI or use a tool like pgAdmin.
-   - Run the following command to create the database and enable PostGIS:
+### 1. Create the Database
+
+1. **Open pgAdmin** or use the PostgreSQL command line.
+2. **Create the Database**:
+   - Run the following command in SQL or pgAdmin to create the database:
 
      ```sql
      CREATE DATABASE gis_aggregate_db;
-     \c gis_aggregate_db;
+     ```
+
+3. **Enable PostGIS Extension**:
+   - Open the new database and enable PostGIS by running:
+
+     ```sql
      CREATE EXTENSION postgis;
      ```
 
-2. **Create Tables**:
-   - Run the SQL script `create_tables.sql` to create the tables and set up the database schema:
+### 2. Run the `create_tables.sql` Script
 
-     ```sql
-     \i sql/create_tables.sql
-     ```
+1. **Open `create_tables.sql`** in pgAdmin’s Query Tool.
+2. **Execute the Script**:
+   - This will create the required tables, including `Source`, `Material_Quality`, `Environmental_Compliance`, `Operational_Info`, `UQ_Results`, and any additional tables specified.
 
-3. **Insert Sample Data**:
-   - Run `insert_sample_data.sql` to populate the tables with sample data:
+### 3. Set Up Automated UQ Updates
 
-     ```sql
-     \i sql/insert_sample_data.sql
-     ```
+1. **Run `automate_uq_updates.sql`**:
+   - Open `automate_uq_updates.sql` in the Query Tool.
+   - Execute it to create the function `update_uq_metrics` and the trigger `recalculate_uq_after_insert`.
+   - This trigger will automatically update the `UQ_Results` table whenever data is inserted or updated in `Material_Quality`.
 
-4. **Load Functions and Triggers**:
-   - Run `create_functions.sql` to create database functions and triggers for Uncertainty Quantification (UQ):
+## Data Population
 
-     ```sql
-     \i sql/create_functions.sql
-     ```
+1. **Update `source_data.csv`, `material_quality.csv`, `environmental_compliance.csv`, and `operational_info.csv`** with your project data as needed.
+2. **Run `data_population.py`** to populate the database with initial data:
+
+   ```bash
+   python scripts/data_population.py
+   ```
 
 ## Usage
 

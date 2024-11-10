@@ -24,6 +24,13 @@ def populate_table_from_csv(table_name, csv_file):
             reader = csv.DictReader(file)
             print(f"Headers in {csv_file}: {reader.fieldnames}")
             for row in reader:
+                # Check for empty numeric fields and replace them with 0
+                for key, value in row.items():
+                    if value == '' and key in ['Test_Value']:  # Adjust for any numeric columns
+                        row[key] = 0
+                    elif value == '' and key in ['Test_Date']:  # Adjust for any date columns
+                        row[key] = '1970-01-01'  # Default date
+
                 columns = ', '.join(row.keys())
                 values = ', '.join(['%s'] * len(row))
                 sql = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
@@ -37,6 +44,7 @@ def populate_table_from_csv(table_name, csv_file):
         close_db(conn, cursor)
 
 # Clear tables in the correct dependency order
+clear_table('UQ_Results')  # Clear UQ_Results first to avoid foreign key constraint issues
 clear_table('Material_Quality')
 clear_table('Environmental_Compliance')
 clear_table('Operational_Info')

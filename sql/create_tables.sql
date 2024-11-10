@@ -61,3 +61,23 @@ CREATE TABLE IF NOT EXISTS UQ_Results (
     Reliability_Index DECIMAL(10, 4),
     Calculation_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Data Consistency Check
+-- This query identifies any Source_IDs in Material_Quality that do not exist in Source
+-- Run this query manually to check for inconsistencies
+SELECT DISTINCT Source_ID 
+FROM Material_Quality 
+WHERE Source_ID NOT IN (SELECT Source_ID FROM Source);
+
+-- Conditionally add Unique Constraint to Source_ID in UQ_Results Table
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint
+        WHERE conname = 'uq_results_source_id_unique'
+    ) THEN
+        ALTER TABLE UQ_Results
+        ADD CONSTRAINT uq_results_source_id_unique UNIQUE (Source_ID);
+    END IF;
+END $$;
