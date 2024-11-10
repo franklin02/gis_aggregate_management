@@ -1,11 +1,14 @@
-Here's a `README.md` file for the **gis_aggregate_management** project, outlining the setup instructions, project structure, usage, and testing steps:
+`README.md` file for the **gis_aggregate_management** project, outlining the setup instructions, project structure, usage, and testing steps:
 
 ---
 
 # GIS Aggregate Management Project
 
-A prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the State of Idaho
-Public Transportation Infrastructure Construction use. This project uses PostgreSQL with PostGIS for spatial data and Python for data population and UQ calculations.
+This is a prototype database and Uncertainty Quantification (UQ) module for managing and analyzing Idaho's aggregate material sources for the State of Idaho
+Public Transportation Infrastructure Construction use. The project provides tools for managing and analyzing aggregate material data using PostgreSQL and 
+PostGIS. The project includes automated Uncertainty Quantification (UQ) metrics updates, data population scripts, and export functionality for 
+integration with ArcGIS.
+
 
 ## Project Structure
 
@@ -35,9 +38,9 @@ gis_aggregate_management/
 
 ## Prerequisites
 
-- **PostgreSQL** with **PostGIS extension** installed.
-- **Python** (version 3.6 or higher).
-- Required Python libraries: `psycopg2` and `numpy`.
+- **PostgreSQL** with **PostGIS** extension installed.
+- **Python** (version 3.6 or higher) with required libraries.
+- **ArcGIS Online or ArcGIS Pro** (optional, for visualizing exported data).
 
 ### Install Required Python Libraries
 
@@ -88,66 +91,60 @@ pip install psycopg2-binary numpy pandas matplotlib
    python scripts/data_population.py
    ```
 
-## Usage
+3. **Verify the Data in pgAdmin**:
+   - Check that all tables (`Source`, `Material_Quality`, etc.) have been populated as expected.
 
-### 1. Database Connection
+## Testing and Using UQ Calculations
 
-Update `database_connection.py` with your PostgreSQL credentials:
+1. **Run `uncertainty_model.py`** to calculate UQ metrics:
 
-```python
-conn = psycopg2.connect(
-    dbname="gis_aggregate_db",
-    user="your_username",
-    password="your_password",
-    host="localhost",
-    port="5432"
-)
-```
+   ```bash
+   python scripts/uncertainty_model.py
+   ```
 
-### 2. Populate Database from CSV Files
+   - This script will calculate and store UQ metrics (mean, standard deviation, reliability index) for each `Source_ID` in `UQ_Results`.
 
-Run `data_population.py` to load sample data from the CSV files located in the `data/` directory:
+2. **Verify the Results in pgAdmin**:
+   - Open `UQ_Results` and confirm that UQ metrics are calculated and stored for each source.
 
-```bash
-python scripts/data_population.py
-```
+## Export Data for ArcGIS
 
-### 3. Run UQ Calculations
+1. **Run `export_data_for_arcgis.py`** to export data with UQ metrics to a CSV file:
 
-Run `uncertainty_model.py` to calculate basic UQ metrics such as mean, standard deviation, and reliability index for test values in the `Material_Quality` table:
+   ```bash
+   python scripts/export_data_for_arcgis.py
+   ```
 
-```bash
-python scripts/uncertainty_model.py
-```
+2. **Upload to ArcGIS**:
+   - Log into ArcGIS Online or ArcGIS Pro and upload the generated CSV (`data_with_uq_for_arcgis.csv`).
+   - Publish as a hosted layer and create a map for visualization and analysis.
 
-### 4. Testing Queries
+## Visualization and Outlier Detection
 
-Use `testing_queries.py` to verify that data has been loaded correctly and UQ functions are working as expected:
+1. **Run `visualize_and_detect_outliers.py`** to visualize the distribution of data and identify outliers:
 
-```bash
-python scripts/testing_queries.py
-```
+   ```bash
+   python scripts/visualize_and_detect_outliers.py
+   ```
 
-## Testing the UQ Module
+2. **Interpret Results**:
+   - View the generated plots and review outlier detection output.
 
-1. **Manual Testing in PostgreSQL**:
-   - Run the following queries to test UQ functions created in `create_functions.sql`:
+## ArcGIS Online Map for Idaho Aggregate Source Data
 
-     ```sql
-     SELECT calculate_mean_test_value('S001');
-     SELECT calculate_stddev_test_value('S001');
-     SELECT calculate_reliability_index('S001');
-     ```
+As part of the project’s GIS integration, we have created an **Idaho Aggregate Source Management Map** using the data with calculated UQ metrics. 
+This map is available on **ArcGIS Online** and allows for public access to view data on aggregate source locations, material quality, and reliability metrics.
+The ArcGIS Online map for Idaho aggregate source data provides users with a visual tool to explore material quality geographically.
 
-2. **Trigger Functionality**:
-   - Insert a new record in `Material_Quality` to verify that triggers update the reliability index automatically:
+**Map Features**:
+- **Geographic Visualization**: Each source is represented as a point on the map, showing its geographic location within Idaho.
+- **Pop-up Details**: Clicking on each point reveals detailed information, including `Mean_Value`, `Reliability_Index`, `Standard_Deviation`, and other key metrics for material quality.
+- **Layer Customization**: Users can adjust map layers and symbology to analyze material quality across different regions, supporting location-based sourcing decisions.
 
-     ```sql
-     INSERT INTO Material_Quality (Material_ID, Source_ID, Aggregate_Use, Lab_Test_Type, Test_Value, Test_Date, Data_Source)
-     VALUES ('M004', 'S001', 'Road Base', 'Abrasion', 25, '2024-02-01', 'Lab D');
-     
-     SELECT * FROM display_uq_metrics('S001');
-     ```
+**Link to Public Map**:
+- [Idaho Aggregate Source Management Map on ArcGIS Online](https://www.arcgis.com/apps/mapviewer/index.html?webmap=8474eed4594e42a5a8ece354c0defacc)*
+
+---
 
 ## Additional Information
 
