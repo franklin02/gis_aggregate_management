@@ -143,7 +143,7 @@ The ArcGIS Online map for Idaho aggregate source data provides users with a visu
 
 **Link to Public Map**:
 - [Idaho Aggregate Source Management Map on ArcGIS Online](https://www.arcgis.com/apps/mapviewer/index.html?webmap=8474eed4594e42a5a8ece354c0defacc)*
-![alt text]https://github.com/franklin02/gis_aggregate_management/blob/main/GIS%20MAP%20-%20Idaho%20agg%20source_HypoData%231.png 
+- Project Screenshot https://github.com/franklin02/gis_aggregate_management/blob/main/GIS%20MAP%20-%20Idaho%20agg%20source_HypoData%231.png 
 ---
 
 ## Additional Information
