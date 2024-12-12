@@ -9,10 +9,9 @@ Public Transportation Infrastructure Construction use. The project provides tool
 PostGIS. The project includes automated Uncertainty Quantification (UQ) metrics updates, data population scripts, and export functionality for 
 integration with ArcGIS.
 
-GIS Aggregate Management Project Developer: Dr. Yang Lu (P.E.) Associate Professor of Civil Engineering, Boise State University
-This project is developed by Dr. Yang Lu, whose expertise lies in infrastructure material database management, material quality control, uncertainty quantification,
-material durability solutions, and pavement evaluation. He has extensive experience in assessing performance measures for transportation infrastructure 
-materials using advanced testing methods.
+GIS Aggregate Management Project Developer: Dr. Yang Lu (P.E.) Associate Professor of Civil Engineering at Boise State University. Dr. Lu's expertise lies in 
+infrastructure material database management, material quality control, material durability solutions, uncertainty quantification, and pavement evaluation. 
+He has extensive experience in assessing performance measures for transportation infrastructure materials using advanced testing methods.
 
 Copyright © 2024 Dr. Yang Lu. This software and accompanying documentation are licensed under the MIT License. All rights reserved. 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the conditions of the MIT License are met.
